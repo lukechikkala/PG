@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>MB</title>
+</head><body>
+	<h1>MB</h1>
+	<button onclick="RedirectToHome()">Back</button>
+<!------------------------------------------------------------------------------------------------->
+	<form id="messageBoxForm"><br>
+		<label for="title">Title</label>
+		<input type="text" id="title" required>
+	
+		<label for="message">Message</label>
+		<input type="text" id="message" required>
+
+		<label for="colors">UI Colors</label>
+		<select id="titleTextColor">
+			<option value=""                            >Title Text Color</option>
+			<option value="Global.Transparent"          >White</option>
+			<option value="Global.PartlySelectedPreset" >Red</option>
+			<option value="Global.Pressed"              >Green</option>
+			<option value="Global.PartlySelected"       >Blue</option>
+			<option value="Global.SelectedInverted"     >Cyan</option>
+			<option value="Global.SelectedEdge"         >Magenta</option>
+			<option value="Global.UserChanged"          >Yellow</option>
+			<option value="Global.InvalidGridPosition"  >Yellow</option>
+		</select>
+
+		<select id="messageTextColor">
+			<option value=""                            >Message Text Color</option>
+			<option value="Global.Transparent"          >White</option>
+			<option value="Global.PartlySelectedPreset" >Red</option>
+			<option value="Global.Pressed"              >Green</option>
+			<option value="Global.PartlySelected"       >Blue</option>
+			<option value="Global.SelectedInverted"     >Cyan</option>
+			<option value="Global.SelectedEdge"         >Magenta</option>
+			<option value="Global.UserChanged"          >Yellow</option>
+			<option value="Global.InvalidGridPosition"  >Yellow</option>
+		</select>
+
+		<select id="backColor">
+			<option value=""                            >Box Text Color</option>
+			<option value="Global.Transparent"          >White</option>
+			<option value="Global.PartlySelectedPreset" >Red</option>
+			<option value="Global.Pressed"              >Green</option>
+			<option value="Global.PartlySelected"       >Blue</option>
+			<option value="Global.SelectedInverted"     >Cyan</option>
+			<option value="Global.SelectedEdge"         >Magenta</option>
+			<option value="Global.UserChanged"          >Yellow</option>
+			<option value="Global.InvalidGridPosition"  >Yellow</option>
+		</select>
+
+		<select id="icon">
+			<option value=""      >Icon</option>
+			<option value="Icon-1">Icon-1</option>
+			<option value="Icon-2">Icon-2</option>
+			<option value="Icon-3">Icon-3</option>
+			<option value="Icon-4">Icon-4</option>
+			<option value="Icon-5">Icon-5</option>
+			<option value="Icon-6">Icon-6</option>
+			<option value="Icon-7">Icon-7</option>
+			<option value="Icon-8">Icon-8</option>
+		</select><br><br><br>
+
+
+		<label for="timeout">Timeout (<span>ms<span class="tooltip">1 ms = 1000 s</span></span>)</label>
+		<input type="number" id="timeout" required>
+
+<!--[ Generate Code ]------------------------------------------------------------------------------>
+	<br>
+	<br>
+	<button type="button" onclick="generateMessageBoxCode()">Generate MessageBox Code</button>
+	</form>
+<!--[ Generated Code ]----------------------------------------------------------------------------->
+	  <div id="codeOutput" style="display: none;">
+		<h2>Generated MessageBox Code:</h2>
+		<pre id="generatedCode"></pre>
+	  </div>
+<!------------------------------------------------------------------------------------------------->
+	  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
