@@ -12,15 +12,26 @@ function generateMessageBoxCode()
 	var backColor               = document.getElementById("backColor").value;
 	var icon                    = document.getElementById("icon").value;
 	var timeout                 = document.getElementById("timeout").value;
+	var timeoutResultCancel     = document.getElementById("timeoutResultCancel");
+
+	if ( timeoutResultCancel.checked )
+	{
+		timeoutResultCancel = "true"
+	}
+	else
+	{
+		timeoutResultCancel = "false"
+	}
 
 	var code = `MessageBox({
-             title            = "${title}"
-            ,message          = "${message}"
-            ,titleTextColor   = "${titleTextColor}"
-            ,messageTextColor = "${messageTextColor}"
-            ,backColor        = "${backColor}"
-            ,icon             = "${icon}"
-            ,timeout          = "${timeout}"
+             title               = "${title}"
+            ,message             = "${message}"
+            ,titleTextColor      = "${titleTextColor}"
+            ,messageTextColor    = "${messageTextColor}"
+            ,backColor           = "${backColor}"
+            ,icon                = "${icon}"
+            ,timeout             = "${timeout}"
+            ,timeoutResultCancel = ${timeoutResultCancel}
             });`;
 
 	document.getElementById("generatedCode").textContent = code;
