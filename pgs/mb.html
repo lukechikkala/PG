@@ -64,35 +64,24 @@
 			<option value="Icon-8">Icon-8</option>
 		</select><br><br><br>
 
-
 		<label for="timeout">Timeout (<span>ms<span class="tooltip">1 ms = 1000 s</span></span>)</label>
 		<input type="number" id="timeout" required>
 
+		<label for="timeoutResultCancel">Time</label>
+
 <!--[ Generate Code ]------------------------------------------------------------------------------>
-	<br>
-	<br>
-	<button type="button" onclick="generateMessageBoxCode()">Generate MessageBox Code</button>
+	<br><br>
+	<button type="button" onclick="generateMessageBoxCode()">Generate</button>
 	</form>
 <!--[ Generated Code ]----------------------------------------------------------------------------->
 	  <div id="codeOutput" style="display: none;">
 		<h2>Generated MessageBox Code:</h2>
 		<pre id="generatedCode"></pre>
+		<button onclick="CopyToClipboard()">Copy Code</button>
 	  </div>
+<!--[ Copy To Clipboard ]-------------------------------------------------------------------------->
+	  
 <!------------------------------------------------------------------------------------------------->
 	  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
