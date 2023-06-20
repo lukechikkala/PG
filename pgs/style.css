@@ -51,10 +51,10 @@ span
 	color                       : #fff;
 	padding-left                : 15px;
 	padding-right               : 15px;
-	text-align                  : center;
-	border-radius               : 10px;
+	border-radius               : 2px;
 	right                       : -170px;
 	visibility                  : hidden;
+	text-align                  : left;
 }
 
 label:hover .tooltip
