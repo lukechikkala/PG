@@ -37,3 +37,16 @@ function validate_timeout()
 		timeoutinput.value      = "";
 	}
 }
+
+function CopyToClipboard()
+{
+	var copyText                = document.getElementById( "generatedCode" );
+	var codeText                = copyText.textContent;
+	var textarea                = document.createElement( "textarea" );
+	textarea.value              = codeText;
+
+	document.body.appendChild( textarea );
+	textarea.select();
+	document.execCommand( "copy" );
+	document.body.removeChild( textarea );
+}
