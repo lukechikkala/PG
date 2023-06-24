@@ -61,3 +61,21 @@ label:hover .tooltip
 {
 	visibility                  : visible;
 }
+
+.commands
+{
+    display: inline;
+}
+
+.commands input
+{
+    width: 30%;
+    margin-right: 10px;
+}
+
+.commands button
+{
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+}
