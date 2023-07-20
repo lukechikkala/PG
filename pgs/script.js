@@ -190,22 +190,6 @@ function removeCommandField(button)
     element.remove();
 }
 
-function ValidateCommands()
-{
-    var CommandValue        = document.getElementById("Commands_Value[]");
-    var CommandName         = document.getElementById("Commands_Name[]");
-    var RemoveButton_O        = document.getElementById("RemoveButton");
-
-    CommandValue.addEventListener( "input", function()
-    {
-        if( CommandValue.value.length > 0 )
-        {
-            // Not sure why but the "Remove" button only appears after "Value" has more than 1 character.
-            RemoveButton_O.style.display = "inline";
-        }
-    } );
-}
-
 /*
 24.Jun.2023
 Saturday
