@@ -6,11 +6,6 @@ Variable Names: Camel Case with underscores replacing spaces.
 
 */
 
-function RedirectToHome()
-{
-    window.location.href = "../index.html";
-}
-
 function generateMessageBoxCode()
 {
     var title                   = document.getElementById("title").value;
@@ -35,7 +30,44 @@ for(var i=0; i<totalNodes; i++) {
     ids[currentId]++;
 }
 
-console.log(ids);
+    //console.log(ids);
+
+    // count of the total commands
+    let numb = document.getElementById("commands").children.length;
+
+    // get the child nodes with in commands
+    var children = document.getElementById("commands").children;
+
+    // here we can store the commands for the time being
+    var commands = "";
+
+    // if there are no commands counted don't show this
+    if (numb != 0){
+        // the "\n new tab, \t new line for the look in the messagebox"
+        commands = '\n\t,commands = {'
+
+        // for loop through all children
+        for (var i = 0; i < numb; i++) {
+            if(i>0){commands += ','};
+            commands += '{value = ';
+
+            // get value of children[i] e.a Line0 get from Line0.children the first one so thats the "value" and get the value
+            commands += children[i].children[0].value;
+
+            // add some text
+            commands += ', name = "';
+
+            // get value of children[i] e.a Line0 get from Line0.children the first one so thats the "name" and get the value
+            commands += children[i].children[1].value;
+
+            // add some more text
+            commands += '"}';
+            
+        }
+        // close it all off
+        commands += '}';
+    }
+    
 
     if ( timeoutResultCancel.checked )
     {
@@ -46,18 +78,18 @@ console.log(ids);
         timeoutResultCancel = "false"
     }
 
+    // at the end you will see ${commands} this is space/tab sensitive
     var code = `MessageBox({
-             title               = "${title}"
-            ,message             = "${message}"
-            ,titleTextColor      = "${titleTextColor}"
-            ,messageTextColor    = "${messageTextColor}"
-            ,backColor           = "${backColor}"
-            ,icon                = "${icon}"
-            ,timeout             = ${timeout}
-            ,timeoutResultCancel = ${timeoutResultCancel}
-            ,timeoutResultID     = ${timeoutResultID}
-            ,commands = {{value = 1, name = "Ok"}, {value = 0, name = "Cancel"}}
-            });`;
+        title               = "${title}"
+        ,message             = "${message}"
+        ,titleTextColor      = "${titleTextColor}"
+        ,messageTextColor    = "${messageTextColor}"
+        ,backColor           = "${backColor}"
+        ,icon                = "${icon}"
+        ,timeout             = ${timeout}
+        ,timeoutResultCancel = ${timeoutResultCancel}
+        ,timeoutResultID     = ${timeoutResultID}${commands}
+        });`;
 
     document.getElementById("generatedCode").textContent = code;
     document.getElementById("codeOutput").style.display = "block";
@@ -91,25 +123,33 @@ function CopyToClipboard()
 
 function AddCommandField()
 {
-    // count childeren off "commands"
-    let numb = document.getElementById("commands").children.length;
-    // Define the parent
-    var parent = document.getElementById("commandsCopy");
+      // count childeren off "commands"
+      let numb = document.getElementById("commands").children.length;
 
-    NodeList.prototype.forEach = Array.prototype.forEach;
-    // Get the children from the parent node
-    var children = parent.childNodes;
-    // Go though the list of children
-    children.forEach(function(item){
+      // Define the parent
+      var parent = document.getElementById("commandsCopy");
+
+      // no idea, does it need to be here?
+      NodeList.prototype.forEach = Array.prototype.forEach;
+ 
+      // Get the children from the parent node
+      var children = parent.childNodes;
+
+      // Go though the list of children
+      children.forEach(function(item){
+
       // create var for the cloned node
       var cln = item.cloneNode(true);
+
       // Change the ID of the cloned Node
       var name = cln.id;
+
       //Give the line the correct number: Line0, Line1......
       for (let i = 0; i < 5; i++) {
         var id = document.getElementById(cln.id+i);
         if (id){}
         else{
+            // adds a unique id to the cloned node
             cln.id = cln.id+i;
             break;
         }
@@ -117,14 +157,23 @@ function AddCommandField()
 
       var childOfChild = cln.childNodes;
       for (var i = 0; i < childOfChild.length; i++) {
+
+        // adds onlick function to the remove button 
         if(childOfChild[i].id=="RemoveButton"){
+
             childOfChild[i].onclick = function() { removeCommandField(numb); };
+
         }else{
+
+            // adds a unique id to the cloned nodes children 
             childOfChild[i].id += numb;
+
         }
       }
+
       // Assign the clone to the document
       document.getElementById("commands").appendChild(cln);
+
     });
      // now we want to asign a number to the remove button within the node
     
@@ -137,22 +186,6 @@ function removeCommandField(button)
 {
     const element = document.getElementById('Line'+button);
     element.remove();
-}
-
-function ValidateCommands()
-{
-    var CommandValue        = document.getElementById("Commands_Value[]");
-    var CommandName         = document.getElementById("Commands_Name[]");
-    var RemoveButton_O        = document.getElementById("RemoveButton");
-
-    CommandValue.addEventListener( "input", function()
-    {
-        if( CommandValue.value.length > 0 )
-        {
-            // Not sure why but the "Remove" button only appears after "Value" has more than 1 character.
-            RemoveButton_O.style.display = "inline";
-        }
-    } );
 }
 
   

@@ -107,7 +107,7 @@
 		<!------------------------------------------------------------------------------------------------->
 				<div id="commandsCopy" class="commands" style="display:none;">
 					<div id="Line">
-						<input class="" type="text" id="Commands_Value" placeholder="Value" oninput="ValidateCommands()">
+						<input class="" type="text" id="Commands_Value" placeholder="Value">
 						<input class="" type="text" id="Commands_Name"  placeholder="Name">
 						<button class="" type="button" id="RemoveButton">-</button>
 						<br>
@@ -139,11 +139,15 @@
 		</div>
 	
 <!--[ Generated Code ]----------------------------------------------------------------------------->
-	  <div id="codeOutput" style="display: none;">
-		<h2>Generated MessageBox Code:</h2>
-		<pre id="generatedCode"></pre>
-		<button onclick="CopyToClipboard()">Copy Code</button>
-	  </div>
+	<div class="container">
+
+		<div id="codeOutput" style="display: none;">
+			<h2>Generated MessageBox Code:</h2>
+			<pre id="generatedCode"></pre>
+			<button onclick="CopyToClipboard()">Copy Code</button>
+			<br>
+		</div>
+	</div>
 <!--[ Copy To Clipboard ]-------------------------------------------------------------------------->
 	  
 <!------------------------------------------------------------------------------------------------->
