@@ -184,10 +184,8 @@ function AddCommandField()
 
 function removeCommandField(button)
 {
-    const element = document.getElementById('Line'+button);
-    element.remove();
-    const element = document.getElementById('Line'+button);
-    element.remove();
+    const elements = document.getElementById('Line'+button);
+    elements.remove();
 }
 
 /*
