@@ -38,9 +38,9 @@ select option
 /**************************************************************************************************/
 span
 {
-	border-bottom               : 2px solid red;
+	/*border-bottom               : 2px solid red;
 	position                    : relative;
-	cursor                      : help;
+	cursor                      : help;*/
 }
 
 .tooltip
@@ -77,5 +77,4 @@ label:hover .tooltip
 {
     margin-right: 10px;
     cursor: pointer;
-    display: none;
 }
