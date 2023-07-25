@@ -6,11 +6,6 @@ Variable Names: Camel Case with underscores replacing spaces.
 
 */
 
-function RedirectToHome()
-{
-    window.location.href = "../index.html";
-}
-
 function generateMessageBoxCode()
 {
     var title                   = document.getElementById("title").value;
@@ -23,6 +18,57 @@ function generateMessageBoxCode()
     var timeoutResultCancel     = document.getElementById("timeoutResultCancel");
     var timeoutResultID 	    = +document.getElementById("timeoutResultID").value;
 
+    var nodes = document.querySelectorAll('[id]');
+var ids = {};
+var totalNodes = nodes.length;
+
+for(var i=0; i<totalNodes; i++) {
+    var currentId = nodes[i].id ? nodes[i].id : "undefined";
+    if(isNaN(ids[currentId])) {
+        ids[currentId] = 0;
+    }                 
+    ids[currentId]++;
+}
+
+    //console.log(ids);
+
+    // count of the total commands
+    let numb = document.getElementById("commands").children.length;
+
+    // get the child nodes with in commands
+    var children = document.getElementById("commands").children;
+
+    // here we can store the commands for the time being
+    var commands = "";
+
+    // if there are no commands counted don't show this
+    if (numb != 0){
+        // the "\n new tab, \t new line for the look in the messagebox"
+        commands = '\n\t,commands = {'
+
+        // for loop through all children
+        for (var i = 0; i < numb; i++) {
+            if(i>0){commands += ','};
+            commands += '{value = ';
+
+            // get value of children[i] e.a Line0 get from Line0.children the first one so thats the "value" and get the value
+            commands += children[i].children[0].value;
+
+            // add some text
+            commands += ', name = "';
+
+            // get value of children[i] e.a Line0 get from Line0.children the first one so thats the "name" and get the value
+            commands += children[i].children[1].value;
+
+            // add some more text
+            commands += '"}';
+            
+        }
+        // close it all off
+        commands += '}';
+    }
+    
+
     if ( timeoutResultCancel.checked )
     {
         timeoutResultCancel = "true"
@@ -32,17 +78,18 @@ function generateMessageBoxCode()
         timeoutResultCancel = "false"
     }
 
+    // at the end you will see ${commands} this is space/tab sensitive
     var code = `MessageBox({
-             title               = "${title}"
-            ,message             = "${message}"
-            ,titleTextColor      = "${titleTextColor}"
-            ,messageTextColor    = "${messageTextColor}"
-            ,backColor           = "${backColor}"
-            ,icon                = "${icon}"
-            ,timeout             = ${timeout}
-            ,timeoutResultCancel = ${timeoutResultCancel}
-            ,timeoutResultID     = ${timeoutResultID}
-            });`;
+        title               = "${title}"
+        ,message             = "${message}"
+        ,titleTextColor      = "${titleTextColor}"
+        ,messageTextColor    = "${messageTextColor}"
+        ,backColor           = "${backColor}"
+        ,icon                = "${icon}"
+        ,timeout             = ${timeout}
+        ,timeoutResultCancel = ${timeoutResultCancel}
+        ,timeoutResultID     = ${timeoutResultID}${commands}
+        });`;
 
     document.getElementById("generatedCode").textContent = code;
     document.getElementById("codeOutput").style.display = "block";
@@ -76,90 +123,69 @@ function CopyToClipboard()
 
 function AddCommandField()
 {
-    var Command_Field       = document.getElementById( "commands" );
-    var CommandValue        = document.getElementById("Commands_Value[]");
-    var CommandName         = document.getElementById("Commands_Name[]");
+      // count childeren off "commands"
+      let numb = document.getElementById("commands").children.length;
 
-    if ( CommandValue.value.length > 0 && CommandName.value.length > 0 )
-    {
-        var New_Input_Value             = document.createElement( "input"  );
-        var New_Input_Name              = document.createElement( "input"  );
-        var New_Remove_Button           = document.createElement( "button" );
-        var line_break                  = document.createElement(   "br"   );
+      // Define the parent
+      var parent = document.getElementById("commandsCopy");
 
-        New_Input_Value.type            = "text";
-        New_Input_Value.id              = "Commands_Value[]";
-        New_Input_Value.placeholder     = "Value";
-        New_Input_Value.setAttribute( "oninput", "ValidateCommands()" );
-        //-----------------------------------------
-        New_Input_Name.type             = "text";
-        New_Input_Name.id               = "Commands_Name[]";
-        New_Input_Name.placeholder      = "Name";
-        //-----------------------------------------
-        New_Remove_Button.type          = "button";
-        New_Remove_Button.id            = "RemoveButton";
-        New_Remove_Button.style.display = "inline";
-        New_Remove_Button.setAttribute("onclick", "removeCommandField(this)");
-        // New_Remove_Button.value         = "-";
-        New_Remove_Button.textContent   = "-";
-        //-----------------------------------------
-        Command_Field.appendChild( New_Input_Value   );
-        Command_Field.appendChild( New_Input_Name    );
-        Command_Field.appendChild( New_Remove_Button );
-        Command_Field.appendChild( line_break        );
-    }
-    else
-    {
-        alert( "Enter at least one Command Value & Name" );
-    }
+      // no idea, does it need to be here?
+      NodeList.prototype.forEach = Array.prototype.forEach;
+ 
+      // Get the children from the parent node
+      var children = parent.childNodes;
+
+      // Go though the list of children
+      children.forEach(function(item){
+
+      // create var for the cloned node
+      var cln = item.cloneNode(true);
+
+      // Change the ID of the cloned Node
+      var name = cln.id;
+
+      //Give the line the correct number: Line0, Line1......
+      for (let i = 0; i < 5; i++) {
+        var id = document.getElementById(cln.id+i);
+        if (id){}
+        else{
+            // adds a unique id to the cloned node
+            cln.id = cln.id+i;
+            break;
+        }
+      }
+
+      var childOfChild = cln.childNodes;
+      for (var i = 0; i < childOfChild.length; i++) {
+
+        // adds onlick function to the remove button 
+        if(childOfChild[i].id=="RemoveButton"){
+
+            childOfChild[i].onclick = function() { removeCommandField(numb); };
+
+        }else{
+
+            // adds a unique id to the cloned nodes children 
+            childOfChild[i].id += numb;
+
+        }
+      }
+
+      // Assign the clone to the document
+      document.getElementById("commands").appendChild(cln);
+
+    });
+     // now we want to asign a number to the remove button within the node
+    
+       
 }
 
 //--------------------------------------------------------------------------------------------------
 
 function removeCommandField(button)
 {
-    //--------------------------------------------------------------------------------------------------
-    // This is a perfect code to reset the fields.
-    // Use this when RemoveButton is pressed with first set of Value & Name filled in.
-    // Command_Field.innerHTML           = `
-    // <input type="text" id="Commands_Value[]" placeholder="Value" oninput="ValidateCommands()">
-    // <input type="text" id="Commands_Name[]"  placeholder="Name">
-    // <button type="button" id="RemoveButton" onclick="removeCommandField(this)" style="display: none;">-</button>
-    // <br>
-    // `;
-    // Command_Field.innerHTML     = '<button type="button" id="RemoveButton" onclick="removeCommandField(this)" style="display: none;">-</button>';
-    //--------------------------------------------------------------------------------------------------
-
-    var This_Div                    = document.getElementById( "commands" )
-    var Available_Commands          = This_Div.getElementsByTagName( "input" );
-    var Available_Commands_count    = Available_Commands.length;
-    console.log( "Number of input fields : ", Available_Commands_count );
-
-    if ( Available_Commands_count == 2 )
-    {
-        console.log( "These are basic command fields, if you don't needs them, just don't use them." )
-    }
-    else
-    {
-        var commandField = button.parentNode;
-        commandField.parentNode.removeChild(commandField);
-    }
-}
-
-function ValidateCommands()
-{
-    var CommandValue        = document.getElementById("Commands_Value[]");
-    var CommandName         = document.getElementById("Commands_Name[]");
-    var RemoveButton_O        = document.getElementById("RemoveButton");
-
-    CommandValue.addEventListener( "input", function()
-    {
-        if( CommandValue.value.length > 0 )
-        {
-            // Not sure why but the "Remove" button only appears after "Value" has more than 1 character.
-            RemoveButton_O.style.display = "inline";
-        }
-    } );
+    const elements = document.getElementById('Line'+button);
+    elements.remove();
 }
 
 /*

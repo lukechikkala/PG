@@ -3,145 +3,155 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<title>MB</title>
 </head><body>
-	<h1>MB</h1>
-	<button onclick="RedirectToHome()">Back</button>
-<!------------------------------------------------------------------------------------------------->
-	<form id="messageBoxForm"><br>
-		<label for="title">Title</label>
-		<input type="text" id="title" required>
-	
-		<label for="message">Message</label>
-		<input type="text" id="message" required>
-
-		<label for="colors">UI Colors</label>
-		<select id="titleTextColor">
-			<option value=""                            >Title Text Color</option>
-			<option value="Global.Transparent"          >White</option>
-			<option value="Global.PartlySelectedPreset" >Red</option>
-			<option value="Global.Pressed"              >Green</option>
-			<option value="Global.PartlySelected"       >Blue</option>
-			<option value="Global.SelectedInverted"     >Cyan</option>
-			<option value="Global.SelectedEdge"         >Magenta</option>
-			<option value="Global.UserChanged"          >Yellow</option>
-			<option value="Global.InvalidGridPosition"  >Yellow</option>
-		</select>
-
-		<select id="messageTextColor">
-			<option value=""                            >Message Text Color</option>
-			<option value="Global.Transparent"          >White</option>
-			<option value="Global.PartlySelectedPreset" >Red</option>
-			<option value="Global.Pressed"              >Green</option>
-			<option value="Global.PartlySelected"       >Blue</option>
-			<option value="Global.SelectedInverted"     >Cyan</option>
-			<option value="Global.SelectedEdge"         >Magenta</option>
-			<option value="Global.UserChanged"          >Yellow</option>
-			<option value="Global.InvalidGridPosition"  >Yellow</option>
-		</select>
-
-		<select id="backColor">
-			<option value=""                            >Box Text Color</option>
-			<option value="Global.Transparent"          >White</option>
-			<option value="Global.PartlySelectedPreset" >Red</option>
-			<option value="Global.Pressed"              >Green</option>
-			<option value="Global.PartlySelected"       >Blue</option>
-			<option value="Global.SelectedInverted"     >Cyan</option>
-			<option value="Global.SelectedEdge"         >Magenta</option>
-			<option value="Global.UserChanged"          >Yellow</option>
-			<option value="Global.InvalidGridPosition"  >Yellow</option>
-		</select>
-
-		<select id="icon">
-			<option value=""      >Icon</option>
-			<option value="Icon-1">Icon-1</option>
-			<option value="Icon-2">Icon-2</option>
-			<option value="Icon-3">Icon-3</option>
-			<option value="Icon-4">Icon-4</option>
-			<option value="Icon-5">Icon-5</option>
-			<option value="Icon-6">Icon-6</option>
-			<option value="Icon-7">Icon-7</option>
-			<option value="Icon-8">Icon-8</option>
-		</select><br><br><br>
-
-		<label for="timeout">Timeout (<span>ms<span class="tooltip">1 ms = 1000 s</span></span>)</label>
-		<input type="number" id="timeout" required>
-
-		<label for="timeoutResultCancel">Time</label>
-
-		<input type="checkbox" id="timeoutResultCancel">Timeout Result Cancel<br><br>
-
-		<label for="timeoutResultID">Timeout Result ID<span>?<span class="tooltip">Determines the value of MessageBox.result which is generated when the user does not choose any of the options and timeout is ended.</span></span></label>
-		<input type="number" id="timeoutResultID" required>
+	<main>
+		<div class="container">
+			<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+				<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+				<span class="fs-4">MessageBox</span>
+				</a>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		<label for="commands">Commands
-		<button type="button" onclick="AddCommandField()">+</button></label>
-
-
-
-
-
-
-
-
-
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-		<div id="commands" class="commands">
-			<input type="text" id="Commands_Value[]" placeholder="Value" oninput="ValidateCommands()">
-			<input type="text" id="Commands_Name[]"  placeholder="Name">
-			<button type="button" id="RemoveButton" onclick="removeCommandField(this)" style="display: none;">-</button>
-			<br>
+				<ul class="nav nav-pills">
+				<li class="nav-item"><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
+				<li class="nav-item"><a href="#" class="nav-link active">MessageBox</a></li>
+				</ul>
+			</header>
 		</div>
+  
+	
 <!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------->
+		<div class="container">
+			<form id="messageBoxForm"><br>
+				<label for="title">Title</label>
+				<input type="text" id="title" required>
+			
+				<label for="message">Message</label>
+				<input type="text" id="message" required>
+		
+				<label for="colors">UI Colors</label>
+				<select id="titleTextColor">
+					<option value=""                            >Title Text Color</option>
+					<option value="Global.Transparent"          >White</option>
+					<option value="Global.PartlySelectedPreset" >Red</option>
+					<option value="Global.Pressed"              >Green</option>
+					<option value="Global.PartlySelected"       >Blue</option>
+					<option value="Global.SelectedInverted"     >Cyan</option>
+					<option value="Global.SelectedEdge"         >Magenta</option>
+					<option value="Global.UserChanged"          >Yellow</option>
+					<option value="Global.InvalidGridPosition"  >Yellow</option>
+				</select>
+		
+				<select id="messageTextColor">
+					<option value=""                            >Message Text Color</option>
+					<option value="Global.Transparent"          >White</option>
+					<option value="Global.PartlySelectedPreset" >Red</option>
+					<option value="Global.Pressed"              >Green</option>
+					<option value="Global.PartlySelected"       >Blue</option>
+					<option value="Global.SelectedInverted"     >Cyan</option>
+					<option value="Global.SelectedEdge"         >Magenta</option>
+					<option value="Global.UserChanged"          >Yellow</option>
+					<option value="Global.InvalidGridPosition"  >Yellow</option>
+				</select>
+		
+				<select id="backColor">
+					<option value=""                            >Box Text Color</option>
+					<option value="Global.Transparent"          >White</option>
+					<option value="Global.PartlySelectedPreset" >Red</option>
+					<option value="Global.Pressed"              >Green</option>
+					<option value="Global.PartlySelected"       >Blue</option>
+					<option value="Global.SelectedInverted"     >Cyan</option>
+					<option value="Global.SelectedEdge"         >Magenta</option>
+					<option value="Global.UserChanged"          >Yellow</option>
+					<option value="Global.InvalidGridPosition"  >Yellow</option>
+				</select>
+		
+				<select id="icon">
+					<option value=""      >Icon</option>
+					<option value="Icon-1">Icon-1</option>
+					<option value="Icon-2">Icon-2</option>
+					<option value="Icon-3">Icon-3</option>
+					<option value="Icon-4">Icon-4</option>
+					<option value="Icon-5">Icon-5</option>
+					<option value="Icon-6">Icon-6</option>
+					<option value="Icon-7">Icon-7</option>
+					<option value="Icon-8">Icon-8</option>
+				</select><br><br><br>
+		
+				<label for="timeout">Timeout (<span>ms<span class="tooltip">1 ms = 1000 s</span></span>)</label>
+				<input type="number" id="timeout" required>
+		
+				<label for="timeoutResultCancel">Time</label>
+		
+				<input type="checkbox" id="timeoutResultCancel">Timeout Result Cancel<br><br>
+		
+				<label for="timeoutResultID">Timeout Result ID<span>?<span class="tooltip">Determines the value of MessageBox.result which is generated when the user does not choose any of the options and timeout is ended.</span></span></label>
+				<input type="number" id="timeoutResultID" required>
+				
+							
+				<label for="commands">Commands
+				<button type="button" onclick="AddCommandField()">+</button></label><br>
+		
+		
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+				<div id="commandsCopy" class="commands" style="display:none;">
+					<div id="Line">
+						<input class="" type="text" id="Commands_Value" placeholder="Value">
+						<input class="" type="text" id="Commands_Name"  placeholder="Name">
+						<button class="" type="button" id="RemoveButton">-</button>
+						<br>
+					</div>
+				</div>
+				<div id="commands" class="commands">
+		
+				</div>
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		
+		
 
+		
+		
+		<!--[ Generate Code ]------------------------------------------------------------------------------>
+			<br><br><br>
+			<button type="button" onclick="generateMessageBoxCode()">Generate</button>
+			</form>
 
-
-
-
-
-
-
-
-
-<!--[ Generate Code ]------------------------------------------------------------------------------>
-	<br><br><br>
-	<button type="button" onclick="generateMessageBoxCode()">Generate</button>
-	</form>
+		</div>
+	
 <!--[ Generated Code ]----------------------------------------------------------------------------->
-	  <div id="codeOutput" style="display: none;">
-		<h2>Generated MessageBox Code:</h2>
-		<pre id="generatedCode"></pre>
-		<button onclick="CopyToClipboard()">Copy Code</button>
-	  </div>
+	<div class="container">
+
+		<div id="codeOutput" style="display: none;">
+			<h2>Generated MessageBox Code:</h2>
+			<pre id="generatedCode"></pre>
+			<button onclick="CopyToClipboard()">Copy Code</button>
+		</div>
+	</div>
 <!--[ Copy To Clipboard ]-------------------------------------------------------------------------->
 	  
 <!------------------------------------------------------------------------------------------------->
+</main>
 	  <script src="script.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
