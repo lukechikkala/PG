@@ -187,12 +187,3 @@ function removeCommandField(button)
     const elements = document.getElementById('Line'+button);
     elements.remove();
 }
-
-/*
-24.Jun.2023
-Saturday
-11:03
-
-removeCommandField(button) deletes all the contents of "commands".
-ValidateCommands() doesn't necessarily validate the current field.
-*/

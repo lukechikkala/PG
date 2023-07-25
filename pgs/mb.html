@@ -13,7 +13,7 @@
 				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
 				<span class="fs-4">MessageBox</span>
 				</a>
-		
+
 				<ul class="nav nav-pills">
 				<li class="nav-item"><a href="../index.html" class="nav-link" aria-current="page">Home</a></li>
 				<li class="nav-item"><a href="#" class="nav-link active">MessageBox</a></li>
@@ -30,7 +30,7 @@
 			
 				<label for="message">Message</label>
 				<input type="text" id="message" required>
-		
+
 				<label for="colors">UI Colors</label>
 				<select id="titleTextColor">
 					<option value=""                            >Title Text Color</option>
@@ -43,7 +43,7 @@
 					<option value="Global.UserChanged"          >Yellow</option>
 					<option value="Global.InvalidGridPosition"  >Yellow</option>
 				</select>
-		
+
 				<select id="messageTextColor">
 					<option value=""                            >Message Text Color</option>
 					<option value="Global.Transparent"          >White</option>
@@ -55,7 +55,7 @@
 					<option value="Global.UserChanged"          >Yellow</option>
 					<option value="Global.InvalidGridPosition"  >Yellow</option>
 				</select>
-		
+
 				<select id="backColor">
 					<option value=""                            >Box Text Color</option>
 					<option value="Global.Transparent"          >White</option>
@@ -67,7 +67,7 @@
 					<option value="Global.UserChanged"          >Yellow</option>
 					<option value="Global.InvalidGridPosition"  >Yellow</option>
 				</select>
-		
+
 				<select id="icon">
 					<option value=""      >Icon</option>
 					<option value="Icon-1">Icon-1</option>
@@ -79,32 +79,21 @@
 					<option value="Icon-7">Icon-7</option>
 					<option value="Icon-8">Icon-8</option>
 				</select><br><br><br>
-		
+
 				<label for="timeout">Timeout (<span>ms<span class="tooltip">1 ms = 1000 s</span></span>)</label>
 				<input type="number" id="timeout" required>
-		
+
 				<label for="timeoutResultCancel">Time</label>
-		
+
 				<input type="checkbox" id="timeoutResultCancel">Timeout Result Cancel<br><br>
-		
+
 				<label for="timeoutResultID">Timeout Result ID<span>?<span class="tooltip">Determines the value of MessageBox.result which is generated when the user does not choose any of the options and timeout is ended.</span></span></label>
 				<input type="number" id="timeoutResultID" required>
 				
 							
 				<label for="commands">Commands
 				<button type="button" onclick="AddCommandField()">+</button></label><br>
-		
-		
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
+
 				<div id="commandsCopy" class="commands" style="display:none;">
 					<div id="Line">
 						<input class="" type="text" id="Commands_Value" placeholder="Value">
@@ -114,30 +103,15 @@
 					</div>
 				</div>
 				<div id="commands" class="commands">
-		
 				</div>
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		<!------------------------------------------------------------------------------------------------->
-		
-		
 
-		
-		
 		<!--[ Generate Code ]------------------------------------------------------------------------------>
 			<br><br><br>
 			<button type="button" onclick="generateMessageBoxCode()">Generate</button>
 			</form>
 
 		</div>
-	
+
 <!--[ Generated Code ]----------------------------------------------------------------------------->
 	<div class="container">
 
