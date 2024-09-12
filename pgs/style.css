@@ -1,80 +1,157 @@
-body
-{
-	font-family					: Arial, sans-serif;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;  /* Light background to improve readability */
 }
 
-label
-{
-	display						: block;
-	margin-bottom				: 10px;
-	font-weight					: bold;
+h1 {
+    text-align: center;
 }
 
- input[type="text"]
-,input[type="number"]
-,textarea
-{
-	width						: 100%;
-	padding						: 5px;
-	margin-bottom				: 15px;
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-pre
-{
-	background-color			: #f0f0f0;
-	padding						: 10px;
-	white-space					: pre-wrap;
-	font-family					: Consolas, monospace;
+label {
+    display: block;
+    margin: 10px 0 5px;
 }
 
-select option
-{
-	margin: 40px;
-	background: rgba(0, 0, 0, 0.3);
-	color: #fff;
-	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
-/**************************************************************************************************/
-span
-{
-	/*border-bottom               : 2px solid red;
-	position                    : relative;
-	cursor                      : help;*/
+textarea {
+    height: 100px;
 }
 
-.tooltip
-{
-	font-family                 : Consolas, monospace;
-	position                    : absolute;
-	background-color            : #fa3c58;
-	color                       : #fff;
-	padding-left                : 15px;
-	padding-right               : 15px;
-	border-radius               : 2px;
-	right                       : -170px;
-	visibility                  : hidden;
-	text-align                  : left;
+.container {
+    max-width: 95%;  /* Increase width to occupy more space */
+    margin: 0 auto;
 }
 
-label:hover .tooltip
-{
-	visibility                  : visible;
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
 }
 
-.commands
-{
-    display: inline;
+.left-pane, .right-pane {
+    flex: 1;  /* Both panes take up equal width */
+    min-width: 45%;  /* Ensure both panes have a minimum width */
+    box-sizing: border-box;
 }
 
-.commands input
-{
-    width: 30%;
-    margin-right: 10px;
+.right-pane {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff;
 }
 
-.commands button
-{
-    margin-right: 10px;
+.output {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    margin-bottom: 20px;
+}
+
+.add-btn, .copy-btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgb(0, 95, 0);
+    color: white;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.add-btn:hover, .copy-btn:hover {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgb(0, 127, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+input.remove-btn {
+    background-color: rgb(127, 0, 0);
+    color: white;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+input.remove-btn:hover {
+    background-color: rgb(191, 0, 0);
+}
+
+.section-group {
+    background-color: #e8e8e8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.input-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.input-table th, .input-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.input-table th {
+    background-color: #f1f1f1;
+}
+
+.input-table td {
+    padding: 10px;
+}
+
+/* Improved responsiveness for smaller screens */
+@media (max-width: 1000px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .left-pane, .right-pane {
+        width: 100%;  /* Full width on smaller screens */
+    }
+}
+
+.nested-table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.nested-table th, .nested-table td {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.nested-table th {
+    background-color: #f1f1f1;
 }
