@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEC-HEX-BIN Converter</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: #1f1f1f;
+            border: 2px solid #8c00ff7a;
+            border-radius: 8px;
+            padding: 20px 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        label {
+            color: #7F7F7F;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            background-color: #3f3f3f;
+            font-family: monospace;
+            color: #FFC000;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #7F7F7F;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: #FF3f3f;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>DEC-HEX-BIN Converter</h1>
+
+        <label for="decimalField">Decimal (Max: 1024)</label>
+        <input type="text" id="decimalField" placeholder="Enter decimal value">
+        <div id="decimalError" class="error"></div>
+
+        <label for="hexField">Hexadecimal (Max: 400)</label>
+        <input type="text" id="hexField" placeholder="Enter hexadecimal value">
+        <div id="hexError" class="error"></div>
+
+        <label for="binaryField">Binary (Max: 10000000000)</label>
+        <input type="text" id="binaryField" placeholder="Enter binary value">
+        <div id="binaryError" class="error"></div>
+    </div>
+
+    <script>
+        const hexField = document.getElementById('hexField');
+        const decimalField = document.getElementById('decimalField');
+        const binaryField = document.getElementById('binaryField');
+
+        const hexError = document.getElementById('hexError');
+        const decimalError = document.getElementById('decimalError');
+        const binaryError = document.getElementById('binaryError');
+
+        function clearErrors() {
+            hexError.textContent = '';
+            decimalError.textContent = '';
+            binaryError.textContent = '';
+        }
+
+        function updateFields(source) {
+            clearErrors();
+            try {
+                let decimalValue;
+
+                if (source === 'hex') {
+                    decimalValue = parseInt(hexField.value, 16);
+                    if (decimalValue > 1024) throw new Error('Hexadecimal value exceeds maximum limit.');
+                } else if (source === 'decimal') {
+                    decimalValue = parseInt(decimalField.value, 10);
+                    if (decimalValue > 1024) throw new Error('Decimal value exceeds maximum limit.');
+                } else if (source === 'binary') {
+                    decimalValue = parseInt(binaryField.value, 2);
+                    if (decimalValue > 1024) throw new Error('Binary value exceeds maximum limit.');
+                }
+
+                if (isNaN(decimalValue)) throw new Error('Invalid input value.');
+
+                hexField.value = decimalValue.toString(16).toUpperCase();
+                decimalField.value = decimalValue.toString(10);
+                binaryField.value = decimalValue.toString(2);
+            } catch (error) {
+                if (source === 'hex') hexError.textContent = error.message;
+                if (source === 'decimal') decimalError.textContent = error.message;
+                if (source === 'binary') binaryError.textContent = error.message;
+            }
+        }
+
+        hexField.addEventListener('input', () => updateFields('hex'));
+        decimalField.addEventListener('input', () => updateFields('decimal'));
+        binaryField.addEventListener('input', () => updateFields('binary'));
+    </script>
+</body>
+</html>
