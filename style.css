@@ -1,0 +1,30 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: monospace;
+}
+
+.fs-4
+{
+    color: #FFF;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.nav-link {
+    background-color: #001f0f;
+    border-radius: 4px;
+    color: #9FFF9F;
+    margin: 5px;
+    padding: 0.5rem 1rem;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #003F1F;
+    color: #00FF7F;
+}
