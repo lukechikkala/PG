@@ -1,30 +1,35 @@
 body
 {
-	font-family					: Arial, sans-serif;
+	font-family                 : monospace;
+	background-color            : #000000;
+	color                       : #FFFFFF;
 }
 
 label
 {
-	display						: block;
-	margin-bottom				: 10px;
-	font-weight					: bold;
+	display                     : block;
+	margin-bottom               : 10px;
+	font-weight                 : bold;
 }
 
  input[type="text"]
 ,input[type="number"]
 ,textarea
 {
-	width						: 100%;
-	padding						: 5px;
-	margin-bottom				: 15px;
+	width                      : 100%;
+	padding                    : 5px;
+	margin-bottom              : 15px;
+	background-color           : #1f1f1f;
+	color                      : #FFFFFF;
+	border                     : 1px solid #333;
 }
 
 pre
 {
-	background-color			: #f0f0f0;
-	padding						: 10px;
-	white-space					: pre-wrap;
-	font-family					: Consolas, monospace;
+	background-color            : #0f0f0f;
+	padding                     : 10px;
+	white-space                 : pre-wrap;
+	font-family                 : Consolas, monospace;
 }
 
 select option
@@ -36,12 +41,7 @@ select option
 }
 
 /**************************************************************************************************/
-span
-{
-	/*border-bottom               : 2px solid red;
-	position                    : relative;
-	cursor                      : help;*/
-}
+/**************************************************************************************************/
 
 .tooltip
 {

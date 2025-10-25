@@ -1,8 +1,10 @@
+/* Page-specific adjustments that follow the site's dark theme */
 body {
-    font-family: Arial, sans-serif;
+    font-family: monospace;
     margin: 20px;
     padding: 0;
-    background-color: #f4f4f4;  /* Light background to improve readability */
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 h1 {
@@ -24,6 +26,9 @@ input, select, textarea {
     padding: 8px;
     margin-bottom: 15px;
     box-sizing: border-box;
+    background-color: #1f1f1f;
+    color: #FFFFFF;
+    border: 1px solid #3f3f3f;
 }
 
 textarea {
@@ -31,7 +36,7 @@ textarea {
 }
 
 .container {
-    max-width: 95%;  /* Increase width to occupy more space */
+    max-width: 95%;
     margin: 0 auto;
 }
 
@@ -39,24 +44,24 @@ textarea {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .left-pane, .right-pane {
-    flex: 1;  /* Both panes take up equal width */
-    min-width: 45%;  /* Ensure both panes have a minimum width */
+    flex: 1;
+    min-width: 45%;
     box-sizing: border-box;
 }
 
 .right-pane {
-    background-color: #2d2d2d;
+    background-color: #1f1f1f;
     padding: 20px;
     border-radius: 8px;
     color: #ffffff;
 }
 
 .output {
-    background-color: #1e1e1e;
+    background-color: #0f0f0f;
     color: #ffffff;
     padding: 15px;
     border-radius: 5px;
@@ -69,8 +74,8 @@ textarea {
     display: block;
     margin: 10px 0;
     padding: 10px;
-    background-color: rgb(0, 95, 0);
-    color: white;
+    background-color: #001f0f;
+    color: #9FFF9F;
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -78,19 +83,12 @@ textarea {
 }
 
 .add-btn:hover, .copy-btn:hover {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgb(0, 127, 0);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
+    background-color: #003F1F;
+    color: #00FF7F;
 }
 
 input.remove-btn {
-    background-color: rgb(127, 0, 0);
+    background-color: #7F0000;
     color: white;
     width: 100%;
     padding: 5px;
@@ -98,12 +96,12 @@ input.remove-btn {
 }
 
 input.remove-btn:hover {
-    background-color: rgb(191, 0, 0);
+    background-color: #BF0000;
 }
 
 .section-group {
-    background-color: #e8e8e8;
-    border: 1px solid #ccc;
+    background-color: #0f0f0f;
+    border: 1px solid #222;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -117,26 +115,25 @@ input.remove-btn:hover {
 
 .input-table th, .input-table td {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #222;
     text-align: left;
 }
 
 .input-table th {
-    background-color: #f1f1f1;
+    background-color: #0f0f0f;
 }
 
 .input-table td {
     padding: 10px;
 }
 
-/* Improved responsiveness for smaller screens */
 @media (max-width: 1000px) {
     .flex-container {
         flex-direction: column;
     }
 
     .left-pane, .right-pane {
-        width: 100%;  /* Full width on smaller screens */
+        width: 100%;
     }
 }
 
@@ -148,10 +145,10 @@ input.remove-btn:hover {
 
 .nested-table th, .nested-table td {
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #222;
     text-align: left;
 }
 
 .nested-table th {
-    background-color: #f1f1f1;
+    background-color: #0f0f0f;
 }

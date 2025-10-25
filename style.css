@@ -2,6 +2,13 @@ body {
     background-color: #000000;
     color: #FFFFFF;
     font-family: monospace;
+    /* give space so fixed top-bar doesn't overlap page content */
+    padding-top: 64px;
+}
+
+/* Header border color */
+.border-bottom {
+    border-color: #1f1f1f !important; /* Using the same purple accent as the box borders */
 }
 
 .fs-4
@@ -27,4 +34,76 @@ body {
 .nav-link:hover {
     background-color: #003F1F;
     color: #00FF7F;
+}
+
+/* Shared top-bar and Home button styling */
+.top-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 16px;
+    /* Fix the top-bar to a consistent position across pages */
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+}
+
+.home-btn {
+    background-color: #001f0f;
+    border-radius: 4px;
+    color: #9FFF9F;
+    padding: 6px 12px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-btn:hover {
+    background-color: #003F1F;
+    color: #00FF7F;
+}
+
+/* Site-wide components (from HexDecBin / CrossMultiplication theme) */
+.box {
+    background-color: #1f1f1f;
+    border: 2px solid #8c00ff7a;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+/* Centering wrapper to center a single element (like the .box) in the viewport */
+.center-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px; /* account for fixed top-bar */
+}
+
+input, textarea, select {
+    background-color: #3f3f3f;
+    font-family: monospace;
+    color: #FFC000;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #7F7F7F;
+    border-radius: 4px;
+}
+
+.error {
+    color: #FF3f3f;
+    font-size: 0.9em;
+}
+
+/* Utility: make top-bar sticky if desired later */
+.top-bar.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
