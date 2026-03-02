@@ -1,0 +1,189 @@
+/* Bar-style fields — full-width rounded row */
+.bar {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.bar label {
+    color: #7F7F7F;
+    white-space: nowrap;
+    min-width: 110px;
+    font-size: 0.95em;
+}
+
+.bar input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #FFC000;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    height: auto;
+}
+
+/* Read-only bar (Difference) */
+.bar-readonly {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.computed-value {
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 1em;
+}
+
+/* Toggle row: input bar + segmented toggle side by side */
+.bar-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.bar-row .bar {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Segmented toggle pill */
+.toggle {
+    display: flex;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.toggle-opt {
+    background: #1a1a1a;
+    border: none;
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.toggle-opt + .toggle-opt {
+    border-left: 1px solid #3f3f3f;
+}
+
+.toggle-opt.active {
+    background-color: #3f3f3f;
+    color: #FFFFFF;
+}
+
+.toggle-opt:hover:not(.active) {
+    background-color: #333;
+    color: #CCCCCC;
+}
+
+/* Copy toast */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: #1f1f1f;
+    border: 1px solid #3f3f3f;
+    color: #9FFF9F;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 200;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Sequence table */
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.panel .box {
+    background-color: #0f0f0f;
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.table-box {
+    padding: 12px;
+}
+
+.table-wrap {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px 4px;
+    font-family: monospace;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: center;
+}
+
+th {
+    color: #7F7F7F;
+    background-color: #1E1E1E;
+    border-radius: 6px;
+    position: sticky;
+    top: 0;
+    font-weight: bold;
+}
+
+td {
+    color: #FFC000;
+}
+
+tr:nth-child(even) td {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+}
+
+td.val {
+    cursor: pointer;
+}
+
+td.val:hover {
+    color: #FFD54F;
+    text-decoration: underline;
+}
+
+/* Remove number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

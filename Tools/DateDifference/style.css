@@ -1,0 +1,470 @@
+/* ============================================
+   Two-panel calculator layout
+   ============================================ */
+.calc-container {
+    display: flex;
+    width: 100%;
+    max-width: 1060px;
+}
+
+.calc-panel {
+    flex: 1;
+    background-color: #1f1f1f;
+    border: 2px solid #280049;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.calc-panel:first-child {
+    border-right: 1px solid #280049;
+    border-radius: 8px 0 0 8px;
+}
+
+.calc-panel:last-child {
+    border-left: 1px solid #280049;
+    border-radius: 0 8px 8px 0;
+}
+
+.panel-section {
+    padding: 4px 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #7f7f7f;
+    margin: 12px 0;
+}
+
+/* ============================================
+   Field rows
+   ============================================ */
+.field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.field-row:last-child {
+    margin-bottom: 0;
+}
+
+.field-row label {
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 1em;
+    text-align: right;
+    min-width: 140px;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.field-row input {
+    flex: 1;
+    background-color: #3f3f3f;
+    border: 1px solid #7F7F7F;
+    border-radius: 4px;
+    color: #FFC000;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 8px 12px;
+    outline: none;
+    margin-bottom: 0;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.field-row input:focus {
+    border-color: #8c00ff7a;
+}
+
+.field-row input::placeholder {
+    color: #555;
+}
+
+/* ============================================
+   Total row
+   ============================================ */
+.total-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 4px 0;
+}
+
+.total-label {
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 1em;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.total-row select {
+    background-color: #3f3f3f;
+    border: 1px solid #7F7F7F;
+    border-radius: 4px;
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 0.95em;
+    padding: 8px 12px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237F7F7F'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 28px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+}
+
+.total-row select:focus {
+    border-color: #8c00ff7a;
+}
+
+.total-row select option {
+    background: #1f1f1f;
+    color: #CCCCCC;
+}
+
+.total-sep {
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 0 12px;
+}
+
+.total-value {
+    flex: 1;
+    background-color: #3f3f3f;
+    border: 1px solid #7F7F7F;
+    border-radius: 4px;
+    color: #FFC000;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 8px 12px;
+    text-align: right;
+}
+
+/* ============================================
+   Number input — hide spinners
+   ============================================ */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* ============================================
+   Flatpickr dark theme
+   ============================================ */
+.flatpickr-calendar {
+    background: #1f1f1f;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    font-family: monospace;
+}
+
+.flatpickr-months {
+    background: #1a1a1a;
+    border-radius: 8px 8px 0 0;
+}
+
+.flatpickr-months .flatpickr-month {
+    background: #1a1a1a;
+    color: #FFFFFF;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: #1a1a1a;
+    color: #FFFFFF;
+    font-family: monospace;
+    display: none;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months option {
+    background: #1f1f1f;
+    color: #FFFFFF;
+}
+
+.flatpickr-current-month input.cur-year {
+    color: #FFFFFF;
+    font-family: monospace;
+}
+
+.flatpickr-current-month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: #7F7F7F;
+    fill: #7F7F7F;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover {
+    color: #FFFFFF;
+    fill: #FFFFFF;
+}
+
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg {
+    fill: inherit;
+}
+
+span.flatpickr-weekday {
+    color: #7F7F7F;
+    font-family: monospace;
+    background: transparent;
+}
+
+.flatpickr-weekdays {
+    background: transparent;
+}
+
+.flatpickr-day {
+    color: #CCCCCC;
+    border-radius: 4px;
+}
+
+.flatpickr-day:hover {
+    background: #3f3f3f;
+    border-color: #3f3f3f;
+    color: #FFFFFF;
+}
+
+.flatpickr-day.today {
+    border-color: #8c00ff7a;
+}
+
+.flatpickr-day.today:hover {
+    background: #8c00ff33;
+    border-color: #8c00ff7a;
+    color: #FFFFFF;
+}
+
+.flatpickr-day.selected {
+    background: #8c00ff;
+    border-color: #8c00ff;
+    color: #FFFFFF;
+}
+
+.flatpickr-day.selected:hover {
+    background: #9c1fff;
+    border-color: #9c1fff;
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: #555555;
+}
+
+.numInputWrapper:hover {
+    background: transparent;
+}
+
+.flatpickr-innerContainer {
+    background: #1f1f1f;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.numInputWrapper span {
+    border: none;
+}
+
+.numInputWrapper span:hover {
+    background: transparent;
+}
+
+.numInputWrapper span::after {
+    border-bottom-color: #7F7F7F;
+    border-top-color: #7F7F7F;
+}
+
+.numInputWrapper span:hover::after {
+    border-bottom-color: #FFFFFF;
+    border-top-color: #FFFFFF;
+}
+
+/* Custom month/year labels */
+.custom-month-label,
+.custom-year-label {
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.custom-month-label:hover,
+.custom-year-label:hover {
+    background-color: #3f3f3f;
+}
+
+/* Custom picker overlay panels */
+.custom-picker-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1f1f1f;
+    z-index: 10;
+    padding: 12px;
+    border-radius: 0 0 8px 8px;
+}
+
+.picker-grid {
+    display: grid;
+    gap: 6px;
+    width: 100%;
+}
+
+.month-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.year-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.picker-cell {
+    background: #2a2a2a;
+    border: 1px solid #3f3f3f;
+    border-radius: 4px;
+    color: #CCCCCC;
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+    text-align: center;
+}
+
+.picker-cell:hover {
+    background: #3f3f3f;
+    color: #FFFFFF;
+}
+
+.picker-cell.active {
+    background: #8c00ff;
+    border-color: #8c00ff;
+    color: #FFFFFF;
+}
+
+.year-input {
+    width: 100%;
+    background: #2a2a2a !important;
+    border: 1px solid #3f3f3f !important;
+    border-radius: 4px !important;
+    color: #FFC000 !important;
+    font-family: monospace;
+    font-size: 1em;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    outline: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.year-input:focus {
+    border-color: #8c00ff !important;
+}
+
+/* Today button */
+.flatpickr-today-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    background: #1f1f1f;
+    border-top: 1px solid #3f3f3f;
+    border-radius: 0 0 8px 8px;
+}
+
+.flatpickr-today-btn {
+    background: #2a2a2a;
+    border: 1px solid #3f3f3f;
+    border-radius: 4px;
+    color: #CCCCCC;
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 4px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.flatpickr-today-btn:hover {
+    background: #8c00ff;
+    border-color: #8c00ff;
+    color: #FFFFFF;
+}
+
+/* ============================================
+   Reset button
+   ============================================ */
+.reset-row {
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+.reset-btn {
+    background-color: #3f3f3f;
+    border: 1px solid #7F7F7F;
+    border-radius: 4px;
+    color: #7F7F7F;
+    font-family: monospace;
+    font-size: 0.9em;
+    padding: 6px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.reset-btn:hover {
+    background-color: #3f3f3f;
+    border-color: #8c00ff7a;
+    color: #CCCCCC;
+}
+
+/* ============================================
+   Responsive — stack panels on narrow screens
+   ============================================ */
+@media (max-width: 768px) {
+    .calc-container {
+        flex-direction: column;
+    }
+    .calc-panel:first-child {
+        border-radius: 8px 8px 0 0;
+        border-right: 2px solid #8c00ff7a;
+        border-bottom: 1px solid #8c00ff7a;
+    }
+    .calc-panel:last-child {
+        border-radius: 0 0 8px 8px;
+        border-left: 2px solid #8c00ff7a;
+        border-top: 1px solid #8c00ff7a;
+    }
+    .field-row label {
+        min-width: 110px;
+        font-size: 0.9em;
+    }
+}

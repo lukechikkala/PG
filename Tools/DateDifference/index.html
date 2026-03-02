@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date &amp; Time Difference</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a class="home-btn" href="../../index.html">Home</a>
+    </div>
+    <div class="center-wrap">
+        <div class="calc-container">
+
+            <!-- ========== Date Difference ========== -->
+            <div class="calc-panel">
+                <div class="panel-section">
+                    <div class="field-row">
+                        <label>Start Date :</label>
+                        <input type="text" id="startDate" placeholder="DD.MM.YYYY">
+                    </div>
+                    <div class="field-row">
+                        <label>End Date :</label>
+                        <input type="text" id="endDate" placeholder="DD.MM.YYYY">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="panel-section">
+                    <div class="field-row">
+                        <label>Years :</label>
+                        <input type="number" id="dYears" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Months :</label>
+                        <input type="number" id="dMonths" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Weeks :</label>
+                        <input type="number" id="dWeeks" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Days :</label>
+                        <input type="number" id="dDays" min="0" step="1" placeholder="0">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="total-row">
+                    <span class="total-label">Total</span>
+                    <select id="dateTotalUnit">
+                        <option value="days" selected>Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                        <option value="years">Years</option>
+                    </select>
+                    <span class="total-sep">:</span>
+                    <span class="total-value" id="dateTotalValue">&mdash;</span>
+                </div>
+                <div class="reset-row">
+                    <button type="button" class="reset-btn" id="resetDate">Reset Date</button>
+                </div>
+            </div>
+
+            <!-- ========== Time Difference ========== -->
+            <div class="calc-panel">
+                <div class="panel-section">
+                    <div class="field-row">
+                        <label>Start Time :</label>
+                        <input type="text" id="startTime" placeholder="HH:MM:SS.mmm">
+                    </div>
+                    <div class="field-row">
+                        <label>End Time :</label>
+                        <input type="text" id="endTime" placeholder="HH:MM:SS.mmm">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="panel-section">
+                    <div class="field-row">
+                        <label>Hours :</label>
+                        <input type="number" id="tHours" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Minutes :</label>
+                        <input type="number" id="tMinutes" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Seconds :</label>
+                        <input type="number" id="tSeconds" min="0" step="1" placeholder="0">
+                    </div>
+                    <div class="field-row">
+                        <label>Milliseconds :</label>
+                        <input type="number" id="tMilliseconds" min="0" step="1" placeholder="0">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="total-row">
+                    <span class="total-label">Total</span>
+                    <select id="timeTotalUnit">
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="seconds" selected>Seconds</option>
+                        <option value="milliseconds">Milliseconds</option>
+                    </select>
+                    <span class="total-sep">:</span>
+                    <span class="total-value" id="timeTotalValue">&mdash;</span>
+                </div>
+                <div class="reset-row">
+                    <button type="button" class="reset-btn" id="resetTime">Reset Time</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+</body>
+</html>

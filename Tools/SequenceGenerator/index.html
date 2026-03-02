@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Generator</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a class="home-btn" href="../../index.html">Home</a>
+    </div>
+    <div class="center-wrap">
+        <div class="panel">
+            <div class="box">
+
+                <div class="bar">
+                    <label>First Digit</label>
+                    <input type="number" id="firstDigit" placeholder="0" step="any">
+                </div>
+
+                <div class="bar-row">
+                    <div class="bar">
+                        <label id="modeLabel">Last Digit</label>
+                        <input type="number" id="modeInput" placeholder="0" step="any">
+                    </div>
+                    <div class="toggle" id="modeToggle">
+                        <button type="button" class="toggle-opt active" data-mode="last">Last Digit</button>
+                        <button type="button" class="toggle-opt" data-mode="second">Second Digit</button>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <label>Count</label>
+                    <input type="number" id="totalCount" placeholder="1" min="1" step="1">
+                </div>
+
+                <div class="bar">
+                    <label>Decimals</label>
+                    <input type="number" id="decimals" placeholder="2" min="0" step="1">
+                </div>
+
+                <div class="bar bar-readonly">
+                    <label>Difference</label>
+                    <span class="computed-value" id="difference">—</span>
+                </div>
+
+            </div>
+
+            <div class="box table-box">
+                <div class="table-wrap">
+                    <table id="sequenceTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast" id="toast">Copied!</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
